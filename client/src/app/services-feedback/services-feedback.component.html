@@ -1,0 +1,17 @@
+<h3 *ngIf="allFeedback.length == 0" style="position: relative; top: -100px; left: 120px;">Your technical service has no feedback yet</h3>
+<mdb-card  *ngFor="let feedback of allFeedback" style="width: 600px; position: relative; left: 35%; top: 80px; margin-bottom: 10px;">
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-text>
+      <p>Author: {{feedback.fullName}}</p>
+      <p>About: {{feedback.serviceName}}</p>  
+      <p>{{feedback.time}}</p>
+    </mdb-card-text>
+
+    <!--Text-->
+    <mdb-card-title>
+        <h5>{{feedback.text}}</h5>
+    </mdb-card-title>
+  </mdb-card-body>
+</mdb-card>

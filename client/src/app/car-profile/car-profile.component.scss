@@ -1,0 +1,38 @@
+.container{
+    margin: auto;
+    width: 400px;
+    border: 2px solid rgb(211, 212, 211);
+    padding: 10px;
+    text-align: left;
+    margin-right: 30%;
+    border-radius: 10px;
+    }
+
+p {
+    text-align:center;
+    font-weight:bold;
+}
+
+#cancel{
+    background-color:#C4001A; 
+    color: white; 
+    float: right;
+}
+
+#create{
+    background-color:#336B87; 
+    color: white;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #336B87; /* blue */
+    
+  }
+  
+  .ng-invalid:not(form)  {
+    border-right: 5px solid #a94442; /* red */
+  }
+
+ .alert{
+      color:  #a94442;
+  }

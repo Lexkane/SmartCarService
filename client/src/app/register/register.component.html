@@ -1,0 +1,80 @@
+<br><br><br><br><br><br><br><br>
+<div style="height: 80%" class="d-flex justify-content-center align-items-center">
+  <form form="registerForm" (ngSubmit)="onSubmit()" #f="ngForm" class="border border-light p-4" [mustMatch]="['password', 'confirmPassword']" novalidate>
+
+  <p class="h3 mb-4 text-center">Welcome to our
+    <br>
+    <kbd>Smart</kbd>carservice</p>
+    <div class="form-group">
+      <label for="username">Username</label>
+    <input type="text" name="username" [(ngModel)]="registerForm.username" class="form-control mb-2" #username="ngModel" required minlength="2" maxlength="15">
+    <div style="color: red" *ngIf="username.invalid && username.touched">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.errors.minlength">Username must be at least 2 characters</div>
+        <div *ngIf="fullName.errors.maxlength">Username can be max 15 characters</div>
+    </div>
+  </div>
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" [(ngModel)]="registerForm.password" class="form-control mb-2" #password="ngModel" required minlength="8" />
+    <div style="color: red" *ngIf="password.invalid && password.touched">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="confirmPassword">Confirm password</label>
+    <input type="password" name="confirmPassword" [(ngModel)]="registerForm.confirmPassword" class="form-control mb-2" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required/>
+    <div style="color: red" *ngIf="confirmPassword.invalid && confirmPassword.touched">
+        <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+        <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+    </div>
+</div>
+  <div class="form-group">
+  <label for="email">Email</label>
+  <input type="email" name="email" [(ngModel)]="registerForm.email" class="form-control mb-2"#email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+  <div style="color: red" *ngIf="email.invalid && email.touched">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.email">Your email not valid</div>
+  </div>
+</div>
+<div class="form-group">
+    <label for="fullName">Full name</label>
+    <input type="text" name="fullName" [(ngModel)]="registerForm.fullName" class="form-control mb-2" #fullName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fullName.invalid }" required minlength="2" maxlength="30"/>
+    <div style="color: red" *ngIf="fullName.invalid && fullName.touched">
+      <div *ngIf="fullName.errors.required">Full name is required</div>
+      <div *ngIf="fullName.errors.minlength">Full name must be at least 2 characters</div>
+      <div *ngIf="fullName.errors.maxlength">Full name can be max 30 characters</div>
+      </div>
+</div>
+<div class="form-group">
+<label for="numberPhone">Phone Number</label>
+<input type="text" name="numberPhone" [(ngModel)]="registerForm.numberPhone" class="form-control mb-2" #numberPhone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numberPhone.invalid }" required pattern="^[(]{0,1}[0-9]{0,3}[)]{0,1}[-\s\.0-9]{0,11}$" minlength="10"/>
+<div style="color: red" *ngIf="numberPhone.invalid && numberPhone.touched">
+    <div *ngIf="numberPhone.errors.required">Phone Number is required</div>
+    <div *ngIf="numberPhone.errors.minlength">Phone Number must containts 10 symbols</div>
+    <div *ngIf="numberPhone.errors.pattern">Phone Number must be 063 123 45 67</div>
+</div>
+</div>
+
+<div class="btn-group" mdbDropdown>
+  <button mdbDropdownToggle type="button" mdbBtn style="background: white; color: black; width: 260px;" class="dropdown-toggle waves-light"
+    mdbWavesEffect>
+    {{selectedRole ? selectedRole.name : 'Who are you?'}}
+  </button>
+<div class="dropdown-menu dropdown-primary">
+    <a type="radio" class="dropdown-item" *ngFor="let role of roleArray"  (click)="chooseRole(role)">{{role.name}}</a>
+    <!-- <div *ngFor="let role of roleArray">
+      <div class="custom-control custom-radio dropdown-item">
+          <input type="radio" [(ngModel)]="registerForm.checkRole" name="checkRole" class="custom-control-input" [value]='role.name' id="role_{{role.name}}" name="defaultExampleRadios">
+          <label class="custom-control-label" (click)="choseRole()" for="role_{{role.name}}">{{role.name}}</label>
+        </div>
+      </div> -->
+  </div>
+</div>
+<div>
+  <button mdbBtn style="background-color: #336B87" class="my-4" type="submit">Sign up</button>
+  <a href="/ui/auth/login" mdbBtn style="background-color: #c5001a; color: white" type="button">Cancel</a>
+  </div>
+  </form>
+  </div>

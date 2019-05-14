@@ -1,0 +1,68 @@
+<div *ngIf="!(notifications.length > 0)" class="no-notifications">
+    <div class="no-notifications">
+        You have no new notifications
+    </div>
+</div>
+
+<div *ngIf="notifications.length > 0" class="container">
+  <div class="notification-header">
+    <button mdbBtn style="background-color:#2D4262; color: white;"  rounded="true" size="sm" 
+            type="button" class="m-0 app-btn" mdbWavesEffect (click)="applyFor()" >
+              Make an appoinment
+    </button>
+  </div>
+<div class="notifications-container">
+  <div class="notification" *ngFor="let n of notifications" >
+    <div class="header">
+      <div class="icon">
+        <img src="assets/icons/icon_{{n.type}}.png" alt="{{n.type}}">
+      </div>
+      <div class="label">
+        {{n.type}}
+      </div>
+      <div class="date">
+        {{n.notificationTime | date : "MMM d, y h:mm a"}}
+      </div>
+      <div class="icon cursor-pointer">
+        <div (click)="deleteNotification(n.id)">
+          <img src="assets/icons/icon_close.png" width="35">
+        </div>
+      </div>
+    </div>
+    <div class="message">
+      <div class="boxes">
+        <input *ngIf="n.showCheckbox" type="checkbox" id="{{n.id}}" [(ngModel)]="n.isSelected" [default]="false">
+        <!-- </div>
+        <div> -->
+        <label for="{{n.id}}">{{n.message}}</label>
+
+        <div *ngIf="n.showDropdown" class="suggestion">
+          <div> - What you can do: </div>
+          <div style="font-style: italic">{{n.suggestion}}</div>
+        </div>
+
+        <button *ngIf="n.showButton" mdbBtn rounded="true" size="sm" type="button" 
+                class="m-0 review-button" mdbWavesEffect routerLink="/ui/leavefeedback" >
+          Leave a review
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- <div *ngIf="showModal">
+<div class="modal-header">
+  <h4 class="modal-title">Ooops!</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>{{message}}!</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+</div> -->

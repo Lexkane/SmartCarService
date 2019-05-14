@@ -1,0 +1,71 @@
+<!--<br><br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<div class="container-fluid" >-->
+  <!--<div class="card" >-->
+    <!--<div class="card-body" *ngFor="let dealer of allDealers">-->
+
+      <!--<div class="points" >-->
+
+        <!--<ul class="hr">-->
+          <!--<h3>{{dealer.dealerName}} </h3>-->
+          <!--<li>dealerAddress: {{dealer.dealerAddress}} </li>-->
+          <!--<li >dealerEmail : {{dealer.dealerEmail}} </li>-->
+        <!--</ul>-->
+
+      <!--</div>-->
+      <!--<div id="options">-->
+
+        <!--<button id="create"  class="btn my-2 my-sm-0"  type="button" block="true" style="background-color:#336B87; color: white;margin-left: 40%" mdbWavesEffec mdbBtn (click) = "dealerSto(dealer.dealerEdr)" >Apply to this dealer </button>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div></div>-->
+
+<!--<br><br>-->
+<!--<div class="container-fluid" >-->
+  <!--&lt;!&ndash;<br><br><br><br><br><br><br><br><br><br><br><br>&ndash;&gt;-->
+  <!--<div *ngFor="let dealer of allDealers" class="flip-card">-->
+
+
+        <!--<div id="description">-->
+          <!--<h3> {{dealer.dealerName}} </h3>-->
+          <!--<li>dealerAddress: {{dealer.dealerAddress}} </li>-->
+          <!--<li >dealerEmail : {{dealer.dealerEmail}} </li>-->
+          <!--<br><br>-->
+          <!--<button class="btn btn-outline my-2 my-sm-0" (click) = "dealerSto(dealer.dealerEdr)" title="Apply for STO"><i class="fa fa-wrench"-->
+                                                                                                                        <!--aria-hidden="true">Apply to this dealer</i>-->
+          <!--</button>-->
+        <!--</div>-->
+
+    <!--&lt;!&ndash;<button id="create"  class="btn my-2 my-sm-0"  type="button" block="true" style="background-color:#336B87; color: white;margin-left: 40%" mdbWavesEffec mdbBtn (click) = "dealerSto(dealer.dealerEdr)" >Apply to this dealer </button>&ndash;&gt;-->
+
+
+  <!--</div>-->
+<!--</div>-->
+<div >
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <div *ngFor="let dealer of allDealers" class="flip-card">
+
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+
+        <div id="description">
+          <h3> {{dealer.dealerName}} </h3>
+          <li>dealerAddress: {{dealer.dealerAddress}} </li>
+          <li >dealerEmail : {{dealer.dealerEmail}} </li>
+          <!--<button id="create"  class="btn my-2 my-sm-0"  type="button" block="true" style="background-color:#336B87; color: white;margin-left: 40%" mdbWavesEffec mdbBtn (click) = "dealerSto(dealer.dealerEdr)" >Apply to this dealer </button>-->
+          <button class="btn btn-outline my-2 my-sm-0" (click) = "dealerSto(dealer.dealerEdr)" title="Apply for STO"><i class="fa fa-wrench"
+          aria-hidden="true">Apply to this dealer</i>
+          </button>
+        </div>
+        <!--<button id="create"  class="btn my-2 my-sm-0"  type="button" block="true" style="background-color:#336B87; color: white;margin-left: 40%" mdbWavesEffec mdbBtn (click) = "dealerSto(dealer.dealerEdr)" >Apply to this dealer </button>-->
+
+      </div>
+      <!--<button class="btn btn-outline my-2 my-sm-0" (click) = "dealerSto(dealer.dealerEdr)" title="Apply for STO"><i class="fa fa-wrench"-->
+                                                                                                                    <!--aria-hidden="true">Apply to this dealer</i>-->
+      <!--</button>-->
+
+    </div>
+  </div>
+</div>

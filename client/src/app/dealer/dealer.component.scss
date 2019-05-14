@@ -1,0 +1,23 @@
+.container{
+    margin: auto;
+    width: 500px;
+    border: 2px solid rgb(211, 212, 211);
+    padding: 10px;
+    text-align: left;
+    }
+
+p {
+    text-align:center;
+    font-weight:bold;
+}
+
+#cancel{
+    background-color:#C4001A;
+    color: white;
+    float: right;
+}
+
+#create{
+    background-color:#336B87;
+    color: white;
+}

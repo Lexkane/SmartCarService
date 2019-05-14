@@ -1,0 +1,31 @@
+<div style="width: 300px;">
+    <mdb-card style="margin: 10px;">
+        <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+     
+          <!-- Card img -->
+          <mdb-card-img src="assets/img/auto-mechanic.jpg" alt="Card image cap"></mdb-card-img>
+          <a>
+            <div class="mask"></div>
+          </a>
+        </div>
+        <!--Card content-->
+        <mdb-card-body>
+          <!--Title-->
+          <mdb-card-title>
+            <h4>{{worker.fullName}}</h4>
+  
+          </mdb-card-title>
+  
+          <!--Text-->
+          <mdb-card-text>
+              <p>Username: {{worker.userName}}</p>
+              <p>Email: {{worker.email}}</p>
+              <p>Phone: {{worker.numberPhone}}</p>
+              <p>Skill: {{worker.skill.name}}</p>
+              <p>Rating: <i class="fa fa-star-o" aria-hidden="true"></i> {{worker.rating}}/5</p>
+          </mdb-card-text>
+  
+          <button (click)="deleteWorker(worker.id)" type="button" block="true" style="background-color:#C4001A; color: white;" mdbWavesEffec mdbBtn>Delete</button>
+        </mdb-card-body>
+    </mdb-card>
+  </div>

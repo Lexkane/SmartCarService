@@ -1,0 +1,18 @@
+<mdb-card style="width: 300px; height: 130px; left: 450px;">
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>{{worker.fullName}}</h4>
+      <p>Skill: {{worker.skill.name}}</p>
+    </mdb-card-title>
+
+    <mdb-card-text>
+      <div class="row" style="font-size: 2em; margin-top: -8px;">
+        <i id="1" class="fa fa-star col star" aria-hidden="true" (click)="setRating(1, $event)"></i>
+        <i id="2" class="fa fa-star col star" aria-hidden="true" (click)="setRating(2, $event)"></i>
+        <i id="3" class="fa fa-star col star" aria-hidden="true" (click)="setRating(3, $event)"></i>
+        <i id="4" class="fa fa-star col star" aria-hidden="true" (click)="setRating(4, $event)"></i>
+        <i id="5" class="fa fa-star col star" aria-hidden="true" (click)="setRating(5, $event)"></i>
+      </div>
+    </mdb-card-text>
+  </mdb-card-body>
+</mdb-card>

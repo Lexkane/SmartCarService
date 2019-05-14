@@ -1,0 +1,132 @@
+<!--------------------Car's cards------------------------>
+<div *ngIf="showCards">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+<div *ngFor="let car of cars" class="flip-card">
+
+<div class="flip-card-inner">
+ <div class="flip-card-front">
+<img src="assets/img/car.png" width="380px" height="230px" style="text-align: center;">
+
+<div id="description">
+<h3> {{car.brand}} {{car.model}} </h3>
+<li>Graduation year : {{car.graduation_year}} </li>
+<li>Number : {{car.number}} </li>
+<li>Vin : {{car.vin}} </li>
+<li *ngIf="!car.price == null">Price : {{car.price}} </li>
+<li *ngIf="!car.end_guarantee == null">End of guarantee : {{car.end_guarantee}} </li>
+</div>
+</div>
+
+<div class="flip-card-back">
+  <img id="car" src="assets/img/car.png" width="380px" height="230px" style="text-align: center;">
+  <hr style="border:2px solid #f1f1f1; width: 360px">
+  <div id="buttons">
+           <button class="btn btn-outline my-2 my-sm-0" (click) = "applyToSTO(car.id)" title="Apply for STO"><i class="fa fa-wrench" aria-hidden="true" ></i><div class="buttonText"> Apply for STO</div> </button>
+           <button class="btn btn-outline my-2 my-sm-0" (click) = "history(car.id)" title="Service history"><i class="fa fa-history" aria-hidden="true"></i><div class="buttonText"> Service history </div> </button>
+           <button class="btn btn-outline my-2 my-sm-0" (click) = "goToCharts(car.id)" title="Show charts"><i class="fa fa-line-chart" aria-hidden="true"></i><div class="buttonText"> Show charts </div></button>
+           <button class="btn btn-outline my-2 my-sm-0" (click) = "applyToTradeIn(car.vin)" title="Apply for TradeeIn"> <i class="fa fa-refresh" aria-hidden="true"></i><div class="buttonText"> Trade In </div></button>
+           <button class="btn btn-outline my-2 my-sm-0" (click) = "openProfile(car)" title="Open profile"><i class="fa fa-window-maximize" aria-hidden="true"></i><div class="buttonText"> Open profile</div> </button>
+           <button class="btn btn-outline my-2 my-sm-0" id="delete" (click) = "deleteCarById(car.id)" title="Delete car"><i class="fa fa-trash-o" aria-hidden="true"></i><div class="buttonText"> Delete car</div> </button>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-------------------------Car profile----------------------------->
+
+<!-------------------3 blocks------------------>
+<div *ngIf="showProfile">
+    <br><br><br>
+<div *ngFor="let car of cars" class="container-fluid" >
+    <button type="button" class="close" (click)="closeProfile()" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+  <div class="card-block">
+    <app-data-card icon='check-square-o' text='Mileage passed' [carId]=car.id></app-data-card>
+    <app-data-card icon='tachometer' text='Max speed' [carId]=car.id></app-data-card>
+    <app-data-card icon='cogs' text='Services received' [carId]=car.id></app-data-card>
+  </div>
+
+        <!-----------------------Car card---------------------->
+<div id="carMain">
+<div class="card">
+    <div class="card-body">
+    <img src="assets/img/car.png" width="260px" height="130px" style="text-align: right;">
+    <h3> {{car.brand}} {{car.model}} </h3>
+    <div class="points" >
+    <li>Graduation year : {{car.graduation_year}} </li>
+    <li>Number : {{car.number}} </li>
+    <li>Vin : {{car.vin}} </li>
+    <li *ngIf="!car.price == null">Price : {{car.price}} </li>
+    <li *ngIf="!car.end_guarantee == null">End of guarantee : {{car.end_guarantee}} </li>
+    <hr style="border:2px solid #f1f1f1">
+  </div>
+    <div id="options">
+        <button class="btn btn-outline my-2 my-sm-0" (click) = "applyToSTO(car.id)" title="Apply for STO"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+        <button class="btn btn-outline my-2 my-sm-0" (click) = "history(car.id)" title="Service history"><i class="fa fa-history" aria-hidden="true"></i> </button>
+        <button class="btn btn-outline my-2 my-sm-0" (click) = "applyToTradeIn(car.vin)" title="Apply for TradeIn"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button class="btn btn-outline my-2 my-sm-0" (click) = "goToCharts(car.id)" title="Show all charts"><i class="fa fa-line-chart" aria-hidden="true"></i></button>
+        <button id="delete" class="btn btn-outline my-2 my-sm-0" (click) = "deleteCarById(car.id)" title="Delete car"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </div>
+    </div>
+</div>
+
+
+<!--------------------Charts--------------------->
+
+<div class="charts">
+    <div class="chart">
+    <line-chart sensorType='tire pressure' [carId]=car.id></line-chart>
+    </div>
+
+
+<!------------Service history table-------------->
+<div id="serviceHistory" >
+<button class="btn btn-outline my-2 my-sm-0" (click) = "showServiceHistory = !showServiceHistory" >Show service history <i class="fa fa-plus-square" aria-hidden="true"></i></button>
+       <div *ngIf = "showServiceHistory">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"><strong>№</strong></th>
+                <th scope="col"><strong>Date</strong></th>
+                <th scope="col"><strong>Time</strong></th>
+                <th scope="col"><strong>What's done</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<!--------------------------Proposal--------------------------------->
+<div *ngIf="showProposal">
+        <br><br><br><br><br><br>
+    <div class="wrapper">
+            <button type="button" class="close" (click)="closeProfile()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        <div id="question">
+        <h5>You don't have registered car.</h5>
+        <h5>Would you like to add it?</h5>
+        <img src="assets/img/car.png" width="260px" height="130px">
+        <br>
+        <button class="btn btn-outline my-2 my-sm-0" routerLink="/ui/newcar" title="Add car">Yes <i class="fa fa-plus-square" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<mdb-card style="width: 700px; position: relative; left: 30%; top: 80px; z-index: 0;">
+  <!--<div class="view rgba-white-slight waves-light" mdbWavesEffect>
+    // Card img
+    <mdb-card-img src="assets/img/auto-mechanic.jpg" alt="Card image cap"></mdb-card-img>
+    <a>
+      <div class="mask"></div>
+    </a>
+  </div>-->
+
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h4>Feedback about {{techservice.name}}</h4>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text>
+      <div class="md-form">
+        <textarea [(ngModel)]="feedbackForm.text" class="md-textarea form-control " rows="3" id="input_text" type="text"
+                  length="120" mdbCharCounter mdbInput></textarea>
+        <label for="input_text">Type your opinion about our service</label>
+      </div>
+    </mdb-card-text>
+
+    <button (click)="sendFeedback()" type="button" block="true" style="background-color:#336B87; color: white;"
+            mdbWavesEffec mdbBtn>Send Feedback
+    </button>
+  </mdb-card-body>
+</mdb-card>
+
+<div class="row" style="position: relative; top: 90px;">
+    <app-workers-feedback *ngFor="let worker of workers.slice(0, 2)" [workerId]="worker" class="col col-sm-3"></app-workers-feedback>
+</div>
+<div class="row" style="position: relative; top: 90px;">
+    <app-workers-feedback *ngFor="let worker of workers.slice(2, 4)" [workerId]="worker" class="col col-sm-3"></app-workers-feedback>
+</div>
+<div class="row" style="position: relative; top: 90px;">
+    <app-workers-feedback *ngFor="let worker of workers.slice(4, 6)" [workerId]="worker" class="col col-sm-3"></app-workers-feedback>
+</div>

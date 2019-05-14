@@ -1,0 +1,90 @@
+<div class="container">
+<div class="notification-header">
+    <button mdbBtn rounded="true" style="color:rgb(45, 66, 98)" size="sm" type="button" class="m-0" mdbWavesEffect (click)="cancel()">
+      Cancel
+    </button>
+  <button mdbBtn rounded="true" size="sm" type="button" class="m-0 approve-btn" mdbWavesEffect (click)="approve()">
+    Approve
+  </button>
+</div>
+
+<mdb-card cascade="true" narrower="true">
+
+
+  <div class="px-4">
+
+    <div class="table-wrapper">
+      <!--Table-->
+      <table class="mb-0" mdbTable hover="true">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+          <th class="th-lg">
+            <a (click)="sortBy('message')">Selected alerts:
+            </a>
+          </th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <div class="notifications-container">
+        <tbody>
+        <ng-container *ngFor="let n of notifications">
+          <tr *ngIf="n.isSelected">
+            <td>{{n.message}}</td>
+            <td>{{n.notificationTime | date : "MMM d, y h:mm a"}}</td>
+            <td>
+                <div class="icon cursor-pointer">
+                    <div (click)="removeFromApprovement(n.id)">
+                      <img src="assets/icons/icon_close.png" width="35">
+                    </div>
+                </div>
+              <!-- <button class="btn btn-danger btn-sm" (click)="removeFromApprovement(n.id)"> X</button> -->
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+        </div>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+    </div>
+  </div>
+</mdb-card>
+</div>
+
+<!-- <app-menu></app-menu>
+
+<mdb-card cascade="true" narrower="true">
+  <!--Card image-->
+<!-- <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+  <div>
+    <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
+      <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
+    </button>
+    <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
+      <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
+    </button>
+  </div>
+
+  <a href="" class="white-text mx-3">Table name</a>
+
+  <div>
+    <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+      <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+    </button>
+    <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+      <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+    </button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="cancel()" >Cancel</button>
+    <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+      <mdb-icon fas fas icon="info-circle-circle" class="mt-0"></mdb-icon>
+    </button>
+  </div>
+
+</div>
+<!--/Card image-->
+

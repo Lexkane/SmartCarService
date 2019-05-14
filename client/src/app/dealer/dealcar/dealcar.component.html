@@ -1,0 +1,95 @@
+<br><br><br><br>
+  <div class="container">
+  <form form="car"  (ngSubmit)="createCar()">
+  <p class="h3 mb-4">Car profile</p>
+  <label><b>Brand</b></label>
+  <input type="text" class="form-control" [(ngModel)]="car.brand" name="brand" >
+  <label><b>Model</b></label>
+  <input type="text" class="form-control" [(ngModel)]="car.model" name="model" >
+  <label><b>Graduation year</b></label>
+
+  <input type="text" class="form-control" [(ngModel)]="car.graduation_year" name="number" required>
+
+ <label><b>Number</b></label>
+  <input type="text" class="form-control" [(ngModel)]="car.number" name="number" required>
+
+  <label><b>Price</b></label>
+  <input type="number" class="form-control" [(ngModel)]="car.price" name="number" required>
+
+
+  <label><b>Vin</b></label>
+  <input type="text" class="form-control" [(ngModel)]="car.vin" name="vin" required>
+  <div ng-app="myApp" ng-controller="myCtrl">
+  </div>
+  <br>
+  <div>
+  <button id="create" type="submit"  (click)="createCar()" class="btn my-2 my-sm-0">Create</button>
+  <a id="cancel" href="/home" type="button" class="btn my-2 my-sm-0">Cancel</a>
+  </div>
+  </form>
+  </div>
+<!--------------Car details------------->
+<!--<br><br><br>-->
+<!--<div  class="container">-->
+  <!--<form form="carProfile" (ngSubmit)="createCar()" #f="ngForm">-->
+    <!--<p class="h3 mb-4">Car details</p>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="brand">Brand</label>-->
+      <!--<input type="text" class="form-control" id="brand" required [(ngModel)]="car.brand" name="brand"   minlength="2" maxlength="25">-->
+      <!--&lt;!&ndash;<div [hidden]="brand.valid || brand.pristine"&ndash;&gt;-->
+           <!--&lt;!&ndash;class="alert">&ndash;&gt;-->
+        <!--&lt;!&ndash;* at least 2 characters&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="model">Model</label>-->
+      <!--<input type="text" class="form-control" id="model" required [(ngModel)]="car.model" name="model" #model="ngModel" minlength="1" maxlength="25">-->
+      <!--&lt;!&ndash;<div [hidden]="model.valid || model.pristine"&ndash;&gt;-->
+           <!--&lt;!&ndash;class="alert">&ndash;&gt;-->
+        <!--&lt;!&ndash;* at least 1 character&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="graduation_year">Year of production</label>-->
+      <!--<select type="text" class="form-control" id="graduation_year" required [(ngModel)]="car.graduation_year" (ngModelChange)="onChange($event)" name="graduation_year" #graduation_year="ngModel">-->
+        <!--<option *ngFor="let y of years" [ngValue]="y" > {{y}} </option>-->
+      <!--</select>-->
+      <!--<div [hidden]="graduation_year.valid || graduation_year.pristine"-->
+           <!--class="alert">-->
+        <!--* yaer is required-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="number">Number</label>-->
+      <!--<input type="text" class="form-control" id="number" required [(ngModel)]="car.number" name="number" #number="ngModel" minlength="8" >-->
+      <!--<div [hidden]="number.valid || number.pristine"-->
+           <!--class="alert">-->
+        <!--* at least 8 characters-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="number">Price</label>-->
+      <!--<input type="number" class="form-control" required [(ngModel)]="car.price" >-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label for="vin">Vin</label>-->
+      <!--<input type="text" class="form-control" id="vin" required [(ngModel)]="car.vin" name="vin" #vin="ngModel" maxlength="20" >-->
+      <!--<div [hidden]="vin.valid || vin.pristine"-->
+           <!--class="alert">-->
+        <!--* at least 1 character-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--<div>-->
+      <!--<button id="create" type="submit" class="btn my-2 my-sm-0" (click)="createCar()" >Create</button>-->
+      <!--<a id="cancel" (click)="reloadPage()" type="button" class="btn my-2 my-sm-0">Cancel</a>-->
+    <!--</div>-->
+  <!--</form>-->
+<!--</div>-->

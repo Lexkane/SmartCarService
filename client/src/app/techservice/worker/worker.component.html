@@ -1,0 +1,43 @@
+<!--
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let worker of workers">
+    <h1>Worker {{worker.userName}}</h1>
+    <p>Full name: {{worker.fullName}}</p>
+    <p>Email: {{worker.email}}</p>
+    <p>Phone: {{worker.numberPhone}}</p>
+    <p>Skill: {{worker.skill.name}}</p>
+    <button (click)="deleteWorker(worker.id)" type="button" block="true" style="background-color:#336B87; color: white;" mdbWavesEffec mdbBtn>Delete</button>
+  </li>
+</ul>
+-->
+
+<div style=" width: 320px; position:  relative; left: 30%;">
+<mdb-card style="margin: 10px;">  
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>Registration of Worker</h4>
+      <hr>
+    </mdb-card-title>
+       
+    <mdb-card-text>
+      <input type="text" name="username" [(ngModel)]="registerForm.username" class="form-control mb-2" placeholder="User Name">
+      <input type="password" name="password" [(ngModel)]="registerForm.password" class="form-control mb-2" placeholder="Password">
+      <input type="email" name="email" [(ngModel)]="registerForm.email" class="form-control mb-2" placeholder="Email">
+      <input type="text" name="fullName" [(ngModel)]="registerForm.fullName" class="form-control mb-2" placeholder="Full Name">
+      <input type="text" name="numberPhone" [(ngModel)]="registerForm.numberPhone" class="form-control mb-2" placeholder="Number Phone">
+      <app-skill></app-skill> 
+      <button (click)="registerWorker()" type="button" block="true" style="margin-top: 10px; background-color:#336B87; color: white;" mdbWavesEffec mdbBtn>Register</button>
+    </mdb-card-text> 
+  </mdb-card-body>
+</mdb-card>
+</div>
+
+<div class="row">
+  <worker-card class="col col-sm-3" *ngFor="let worker of workers.slice(0, 4)" (deleteWorkerEvent)="recieveWorkers()" [worker]="worker"></worker-card>
+</div>
+<div class="row">
+    <worker-card class="col col-sm-3" *ngFor="let worker of workers.slice(4, 8)" (deleteWorkerEvent)="recieveWorkers()" [worker]="worker"></worker-card>
+</div>
+<div class="row">
+    <worker-card class="col" *ngFor="let worker of workers.slice(8, 12)" (deleteWorkerEvent)="recieveWorkers()" [worker]="worker"></worker-card>
+</div>

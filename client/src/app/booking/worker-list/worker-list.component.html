@@ -1,0 +1,42 @@
+
+
+<div class="d-flex justify-content-start">
+  <div class="container" *ngIf="showWorker">
+      <div class= "d-flex alert alert-info justify-content-center" role="alert">
+          You can choose workers. If u did not do it, we will choose default workers.
+        </div>
+      <h5 class="time-value">Required Time: {{getRequiredTime(workersTime.requiredTime)}}</h5>
+    <div *ngIf ="!getDefault" class= "d-flex flex-row flex-wrap">
+        <ng-container class="work-container" *ngFor="let item of workersTime.workersList | keyvalue">
+            <mdb-card class="mb-3 align-self-start" style="width: 170px; border: 1px solid #2D4262; padding: 3px; margin: 7px">
+              <mdb-card-header> <p style="font-size:small; align-self: center; margin-bottom: 0px">{{item.key}}</p></mdb-card-header>
+              <mdb-card-body >
+                <mdb-card-title>
+                  <h5> Workers: </h5>
+                </mdb-card-title>
+                <mdb-card-text>
+                  <div class="jumbotron text-center hoverable p-4"
+                  style="cursor: pointer;"
+                    *ngFor="let value of item.value"
+                    id='worker{{value.workerId}}'
+                      (click)="ChooseWorker(value, item.key)">
+                      {{addToDefault(item.key, value)}}
+                  </div>
+                </mdb-card-text>
+              </mdb-card-body>
+            </mdb-card>
+        </ng-container>
+  </div>
+    <div class="d-flex justify-content-center" style="margin:20px;">
+    <button *ngIf="showTime" mdbBtn type="button" class ="justify-content-start" style="background-color: #336B87" (click)="getFreeTime()" mdbWavesEffect>Get Free Time</button>
+    <button *ngIf="!showTime" mdbBtn type="button" class ="justify-content-start" style="background-color: #336B87" (click)="getFreeTime()" mdbWavesEffect>Get Free
+      Time</button>
+      </div>
+  </div>
+
+  <div *ngIf="showTime">
+    <app-time-list class="d-flex justify-content-end" [timeList]=timeList  [carId] = carId
+     [workInfo] = workersTime.worksInfo [price] = cost [notiId] = notiId
+     [fromNoti] = fromNoti></app-time-list>
+  </div>
+</div>

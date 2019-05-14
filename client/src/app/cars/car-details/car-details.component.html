@@ -1,0 +1,76 @@
+<br><br><br>
+<div class="container-fluid">
+  <button type="button" class="close" (click)="closeProfile()" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="card-block">
+    <app-data-card icon='check-square-o' text='Mileage passed' [carId]=carId></app-data-card>
+    <app-data-card icon='tachometer' text='Max speed' [carId]=carId></app-data-card>
+    <app-data-card icon='cogs' text='Services received' [carId]=carId></app-data-card>
+  </div>
+
+  <!-----------------------Car card---------------------->
+  <div id="carMain">
+    <div class="card">
+      <div class="card-body">
+        <img src="assets/img/car.png" width="260px" height="130px" style="text-align: right;">
+        <h3> {{carBrand}} {{carModel}} </h3>
+        <div class="points">
+          <li>Graduation year : {{carGY}} </li>
+          <li>Number : {{carNumber}} </li>
+          <li>Vin : {{carVin}} </li>
+          <li *ngIf="!carPrice == null">Price : {{carPrice}} </li>
+          <li *ngIf="!carEnd_guarantee == null">End of guarantee : {{carEnd_guarantee}} </li>
+          <hr style="border:2px solid #f1f1f1">
+        </div>
+        <div id="options">
+          <button class="btn btn-outline my-2 my-sm-0" (click)="applyToSTO(carId)" title="Apply for STO"><i class="fa fa-wrench"
+              aria-hidden="true"></i></button>
+          <button class="btn btn-outline my-2 my-sm-0" (click)="history(carId)" title="Service history"><i class="fa fa-history"
+              aria-hidden="true"></i> </button>
+          <button class="btn btn-outline my-2 my-sm-0" (click)="applyToTradeIn(carVin)" title="Apply for TradeInn"><i
+              class="fa fa-refresh" aria-hidden="true"></i></button>
+          <button class="btn btn-outline my-2 my-sm-0" (click)="goToCharts(carId)" title="Show all charts"><i class="fa fa-line-chart"
+              aria-hidden="true"></i></button>
+          <button id="delete" class="btn btn-outline my-2 my-sm-0" (click)="deleteCarById(carId)" title="Delete car"><i
+              class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------Charts--------------------->
+    <div class="charts">
+      <div class="chart">
+        <line-chart sensorType='tire pressure' [carId]=carId></line-chart>
+      </div>
+    </div>
+
+
+    <!----------------Service history table-------------------->
+    <div id="serviceHistory">
+      <button class="btn btn-outline my-2 my-sm-0" (click)="showServiceHistory = !showServiceHistory">Show service
+        history <i class="fa fa-plus-square" aria-hidden="true"></i></button>
+      <div *ngIf="showServiceHistory">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"><strong>№</strong></th>
+              <th scope="col"><strong>Date</strong></th>
+              <th scope="col"><strong>Time</strong></th>
+              <th scope="col"><strong>What's done</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

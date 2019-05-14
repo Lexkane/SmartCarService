@@ -1,0 +1,94 @@
+<!--------------Car details------------->
+<br><br><br>
+<div *ngIf="showCarProfile" class="container">
+  <form form="carProfile" (ngSubmit)="onSubmit()" #f="ngForm">
+    <p class="h3 mb-4">Car details</p>
+
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <input type="text" class="form-control" id="brand" required [(ngModel)]="carProfile.brand" name="brand"  #brand="ngModel" minlength="2" maxlength="25">
+      <div [hidden]="brand.valid || brand.pristine"
+           class="alert">
+        * at least 2 characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="model">Model</label>
+      <input type="text" class="form-control" id="model" required [(ngModel)]="carProfile.model" name="model" #model="ngModel" minlength="1" maxlength="25">
+      <div [hidden]="model.valid || model.pristine"
+           class="alert">
+        * at least 1 character
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="graduation_year">Year of production</label>
+      <select type="text" class="form-control" id="graduation_year" required [(ngModel)]="carProfile.graduation_year" (ngModelChange)="onChange($event)" name="graduation_year" #graduation_year="ngModel">
+        <option *ngFor="let y of years" [ngValue]="y" > {{y}} </option>
+      </select>
+      <div [hidden]="graduation_year.valid || graduation_year.pristine"
+           class="alert">
+        * yaer is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="number">Number</label>
+      <input type="text" class="form-control" id="number" required [(ngModel)]="carProfile.number" name="number" #number="ngModel" minlength="8" >
+      <div [hidden]="number.valid || number.pristine"
+           class="alert">
+        * at least 8 characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vin">Vin</label>
+      <input type="text" class="form-control" id="vin" required [(ngModel)]="carProfile.vin" name="vin" #vin="ngModel" maxlength="20" >
+      <div [hidden]="vin.valid || vin.pristine"
+           class="alert">
+        * at least 1 character
+      </div>
+    </div>
+
+    <br>
+    <div>
+      <button id="create" type="submit" class="btn my-2 my-sm-0" [disabled]="!f.form.valid">Create</button>
+      <a id="cancel" (click)="reloadPage()" type="button" class="btn my-2 my-sm-0">Cancel</a>
+      </div>
+  </form>
+</div>
+
+<!--------------Vechicle inspection------------->
+
+<br><br><br>
+<div *ngIf="showInspection" class="container">
+    <form form="carVechicleInspection" (ngSubmit)="Confirm()" #v="ngForm">
+    <p class="h3 mb-4">Last vachicle inspection</p>
+
+    <div class="form-group">
+      <label for="dateOfInspection"> Date</label>
+      <input type="date" class="form-control" id ="dateOfInspection" required [(ngModel)]="carVechicleInspection.dateOfInspection" name="dateOfInspection" #dateOfInspection="ngModel" minlength="10" maxlength="10">
+      <div [hidden]="dateOfInspection.valid || dateOfInspection.pristine"
+           class="alert">
+        * 10 characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mileageOfCar"> Miles spent</label>
+      <input type="number" class="form-control" id="mileageOfCar" required [(ngModel)]="carVechicleInspection.mileageOfCar" name="mileageOfCar" #mileageOfCar="ngModel" minlength="1" maxlength="8">
+      <div [hidden]="mileageOfCar.valid || mileageOfCar.pristine"
+           class="alert">
+        * at least 1 characters
+      </div>
+    </div>
+
+    <h8>*if you didn't have any vachicle inspection yet, plese skip this form </h8>
+    <br><br>
+    <div>
+      <button id="create" type="submit" class="btn my-2 my-sm-0" [disabled]="!v.form.valid">Confirm</button>
+      <a id="cancel" href="ui/cars" type="button" class="btn my-2 my-sm-0">Skip</a>
+    </div>
+  </form>
+</div>

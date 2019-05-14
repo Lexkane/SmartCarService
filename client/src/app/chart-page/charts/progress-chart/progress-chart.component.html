@@ -1,0 +1,18 @@
+<div class='ml-5 mb-5 mr-5 d-flex flex-column align-items-center'>
+
+  <h3 class="pl-3"> {{ sensorType | uppercase }} </h3>
+
+  <circle-progress
+    [percent]=percent
+    [radius]="75"
+    [outerStrokeWidth]="10"
+    [innerStrokeWidth]="5"
+    [outerStrokeColor]="'#90AFC5'"
+    [innerStrokeColor]="'#336B87'"
+    [animation]="true"
+    [animationDuration]="300"
+    [showSubtitle]='false'
+    [titleFontSize]='30'
+    [unitsFontSize]='20'>
+  </circle-progress>
+</div>

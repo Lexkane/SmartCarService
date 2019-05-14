@@ -1,0 +1,47 @@
+
+<!--<br><br><br><br>-->
+<!--<div class="container-fluid" *ngFor="let sto of stos">-->
+  <!--<ul>-->
+    <!--<div class="points" >-->
+      <!--<li>Sto name : {{sto.name}} </li>-->
+      <!--<li>Sto address : {{sto.address}}-->
+
+    <!--</div>-->
+    <!--<br>-->
+    <!--<button class="btn btn-outline my-2 my-sm-0" (click)="add(sto.stoId)" style="background-color: #336B87">Add <i class="fa fa-history" aria-hidden="true"></i> </button>-->
+    <!--<button class="btn btn-outline my-2 my-sm-0" (click)="deleteApply(sto.stoId)" style="background-color: #336B87">Ignore <i class="fa fa-history" aria-hidden="true"></i> </button>-->
+
+
+  <!--</ul>-->
+<!--</div>-->
+<!--<br><br>-->
+
+
+
+<div >
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <div *ngFor="let sto of stos" class="flip-card">
+
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+
+        <div id="description">
+          <li>Sto name : {{sto.name}} </li>
+          <li>Sto address : {{sto.address}}</li>
+
+          <button class="btn btn-outline my-2 my-sm-0" (click) = "add(sto.stoId)" title="Add"><i class="fa fa-wrench" aria-hidden="true">Add</i>
+          </button>
+          <button class="btn btn-outline my-2 my-sm-0" (click) = "deleteApply(sto.stoId)" title="Ignore"><i class="fa fa-wrench" aria-hidden="true">Ignore</i>
+          </button>
+
+        </div>
+        <!--<button id="create"  class="btn my-2 my-sm-0"  type="button" block="true" style="background-color:#336B87; color: white;margin-left: 40%" mdbWavesEffec mdbBtn (click) = "dealerSto(dealer.dealerEdr)" >Apply to this dealer </button>-->
+
+      </div>
+      <!--<button class="btn btn-outline my-2 my-sm-0" (click) = "dealerSto(dealer.dealerEdr)" title="Apply for STO"><i class="fa fa-wrench"-->
+      <!--aria-hidden="true">Apply to this dealer</i>-->
+      <!--</button>-->
+
+    </div>
+  </div>
+</div>

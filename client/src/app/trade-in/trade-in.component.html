@@ -1,0 +1,71 @@
+<br>
+<br>
+<br>
+<div class="container-fluid" >
+  <div class="card">
+    <div class="card-body">
+      <img src="assets/img/car.png" width="260px" height="130px" style="text-align: right; float:left;">
+
+      <div class="points" >
+        <ul class="hr">
+          <h3>Your car </h3>
+          <li>Brand  : {{mycar.brand}} </li>
+          <li>Model : {{mycar.model}}  </li>
+          <li>Graduation year : {{mycar.graduation_year}} </li>
+          <li>Number : {{mycar.number}} </li>
+          <li>Vin : {{mycar.vin}} </li>
+        </ul>
+
+      </div>
+      <div id="options"></div>
+    </div>
+  </div>
+  <br><br>
+  <div class="card" *ngFor="let dealercar of allCars">
+    <div class="card-body">
+      <img src="assets/img/car.png" width="260px" height="130px" style="text-align: right; float:left;">
+
+      <div class="points" >
+        <ul class="hr">
+          <h3>{{dealercar.brand}} </h3>
+          <li>Model : {{dealercar.model}}  </li>
+          <li>Graduation year : {{mycar.graduation_year}} </li>
+          <li>Number :  {{dealercar.number}} </li>
+          <li>price : {{dealercar.price}} </li>
+        </ul>
+      </div>
+      <div id="options">
+        <button class="btn btn-outline my-2 my-sm-0;" (click)="sendTradeIn(dealercar.vin,mycar.vin)"  style="background-color: #c5001a;margin-left: 30%"> <i class="btn my-2 my-sm-0" aria-hidden="true">TradeIn</i></button>
+        <button class="btn btn-outline my-2 my-sm-0;" (click)="startmessage(dealercar.vin)"  style="background-color: #c5001a;margin-left: 30%"> <i class="btn my-2 my-sm-0" aria-hidden="true">Send message to dealer</i></button>
+
+      </div>
+    </div>
+    <div *ngIf="showchat" class="container-fluid" >
+
+      <!--<form  >-->
+      <!--<div style="margin-bottom: 20px;">-->
+      <!--<input type="text" [(ngModel)]="username" name="fromId"  placeholder="Your id">-->
+      <!--<input type="submit" (click)="openSocket()"  value="open socket to recieve custom messages">-->
+
+      <!--</div>-->
+      <!--<input type="text"  [(ngModel)]="toId" name="toId" placeholder="User id to send the message to">-->
+      <!--</form>-->
+
+      <form>
+        <p>Message: </p>
+        <input type="text" [(ngModel)]="msg" name="message" placeholder="Message">
+        <input type="button"  value="Send " (click)="sendMessageUsingRest()">
+      </form>
+      <ul>
+
+        <li  *ngFor="let message of messages">From: {{message.fromId}}, To: {{message.toId}}, Message: {{message.message}}</li>
+
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+
+

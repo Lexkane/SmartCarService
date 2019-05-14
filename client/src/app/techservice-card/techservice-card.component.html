@@ -1,0 +1,17 @@
+<div style=" width: 320px;">
+  <mdb-card style="margin: 10px;">
+    <mdb-card-body>
+      <mdb-card-title>
+        <h4>{{techservice.name}}</h4>
+        <hr>
+      </mdb-card-title>
+
+      <mdb-card-text>
+        <p>Address: {{techservice.address}}</p>
+        <p>Rating: <i class="fa fa-star-o" aria-hidden="true"></i> {{techservice.rating}}/5</p>
+        <p>Workers count: {{techservice.workers.length}}</p>
+        <button *ngIf="applyButton" (click)="applyToTechservice()" type="button" block="true" style="margin-top: 10px; background-color:#336B87; color: white;" mdbWavesEffec mdbBtn>Apply</button>
+      </mdb-card-text> 
+    </mdb-card-body>
+  </mdb-card>
+</div>

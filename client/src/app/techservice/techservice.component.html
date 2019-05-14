@@ -1,0 +1,59 @@
+<mdb-card style="display: flex; position: relative;  width: 86%; left: 210px; top: 80px">
+    <mdb-card-body>
+        <mdb-card-title>
+            <h4 style="text-align: center">Your Technical Service</h4>
+            <hr>
+            <div *ngIf="techservice.stoId > 0">
+              <h5>Rating: <i class="fa fa-star-o" aria-hidden="true"></i> {{techservice.rating}}/5</h5>
+              <hr>
+            </div>
+        </mdb-card-title>  
+
+        <mdb-card-text>
+            <div class="row flex-center">
+                <div class="col-md-5 md-form">
+                    <input mdbInput id="form58" type="text" name="username" [(ngModel)]="techservice.name" class="form-control" placeholder="Service Name">
+                    <label for="form58" style="margin-left: 12px;">Name</label>
+                    <br>
+                    <input mdbInput id="form59" type="text" name="address" [(ngModel)]="techservice.address" class="form-control" placeholder="Address">
+                    <label for="form59" style="margin-left: 12px; margin-top: 68px;">Address (pick on map)</label>
+                    <br>   
+                    <div *ngIf="techservice.stoId < 0">
+                        <button [disabled]="!techservice.name && !techservice.address" (click)="createTechservice(techservice, user)" type="button" mdbBtn block="true" style="background-color:#336B87; color: white;" mdbWavesEffect>Create Technical Service</button>
+                    </div>    
+            
+                    <div *ngIf="techservice.stoId > 0" class="row">
+                        <div class="col">
+                            <button [disabled]="!techservice.name" (click)="updateTechservice(techservice)" type="button" block="true" style="background-color:#336B87; color: white;" mdbWavesEffec mdbBtn>Update Info</button>
+                        </div>
+            
+                        <div class="col">
+                            <button (click)="deleteTechservice(techservice.id)" type="button" block="true" style="background-color:#C4001A; color: white;" mdbWavesEffect mdbBtn>Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                        <app-map (onLocationChosen)="onLocationChosen($event)"></app-map>
+                </div>
+            </div>                
+        </mdb-card-text>
+            
+    </mdb-card-body>
+</mdb-card>
+
+
+<div style="position: relative; top:100px; left: 210px; width: 86%;">
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Manage Workers
+    </mat-panel-title>
+    <mat-panel-description>
+      Here You can add, delete or simply view workers of Technical Service
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+        
+  <app-worker *ngIf="techservice.stoId > 0" [techserviceId]="techservice.stoId"></app-worker>
+</mat-expansion-panel>
+</div>

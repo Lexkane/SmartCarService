@@ -1,0 +1,34 @@
+
+ <div *ngIf="profile"> 
+  <div style="width: 400px;">
+    <div class="md-form input-group mb-3" >
+      <div class="input-group-prepend">
+          <span class="input-group-text md-addon">Username: </span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="profile.userName" aria-label="Username" aria-describedby="material-addon1">
+    </div>
+
+    <div class="md-form input-group mb-3" >
+        <div class="input-group-prepend">
+            <span class="input-group-text md-addon">Email:    </span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="profile.email" aria-describedby="material-addon1">
+    </div>
+
+    <div class="md-form input-group mb-3" >
+        <div class="input-group-prepend">
+            <span class="input-group-text md-addon">Fullname: </span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="profile.fullName" aria-describedby="material-addon1">
+    </div>
+
+    <div class="md-form input-group mb-3" >
+        <div class="input-group-prepend">
+            <span class="input-group-text md-addon">Password: </span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="profile.password" aria-describedby="material-addon1">
+    </div>
+
+    <button (click)="updateProfile()" type="button" mdbBtn block="true" color="dark" mdbWavesEffect>Edit profile</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="appliedTechservice.stoId < 0" style="position: relative; top: 80px; left: 200px; padding: 10px;">
+  <h3 *ngIf="appliedTechservice.stoId == -1">Choose a Technical Service You Like:</h3>
+  <techservice-card 
+    *ngFor="let techservice of allTechservices" 
+    [techservice]="techservice" 
+    [applyButton]="true" ></techservice-card>
+</div>
+
+<div *ngIf="appliedTechservice.stoId > 0" style="position: relative; top: 80px; left: 200px; padding: 10px;">
+  <h3> Technical Service You Applied</h3>
+  <techservice-card [techservice]="appliedTechservice"></techservice-card>
+</div>

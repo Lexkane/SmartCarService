@@ -1,0 +1,10 @@
+<br><br><br><br><br>
+<form name="test" enctype="multipart/form-data">
+<div class="form-group">
+ <label for="file">Choose file to upload norms for car</label>
+ <br>
+ <input type="file" id="file" (change)="handleFileInput($event)" enctype="multipart/form-data">
+
+<button class="btn btn-outline my-2 my-sm-0" type="submit" (click)="uploadFile()" title="Add norms">Upload</button>
+</div>
+</form>

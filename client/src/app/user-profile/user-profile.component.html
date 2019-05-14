@@ -1,0 +1,56 @@
+<br><br><br>
+<div class="container-fluid" >
+  <button type="button" class="close" (click)="closeProfile()" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  <div class="card-block">
+      <div class="card">
+          <div class="card-body">
+            <i class="fa fa-calendar fa-4x" aria-hidden="true"></i>
+              <div class="desc" style="display: inline-block">
+             <h3>{{today}}</h3>
+              <h5> Today</h5>
+            </div>
+      </div>
+      </div>
+
+      <div class="card">
+          <div class="card-body">
+              <i class="fa fa-tachometer fa-4x" aria-hidden="true"></i>
+               <div class="desc" style="display: inline-block;">
+                  <h2> 132 mi/h</h2>
+                <h5> Last drive speed</h5>
+              </div>
+      </div>
+      </div>
+
+      <div class="card">
+          <div class="card-body">
+              <i class="fa fa-cogs fa-3x" aria-hidden="true"></i>
+              <div class="desc" style="display: inline-block; color:black;">
+                  <h2><a href="/ui/techservices">64</a></h2>
+                 <h5>Services available</h5>
+              </div>
+      </div>
+      </div>
+      </div>
+
+      <!-----------------------User card---------------------->
+<div id="carMain">
+<div class="card">
+  <div class="card-body">
+  <img src="assets/img/icon1.png" width="200px" height="200px" style="text-align: right;">
+
+
+  <hr style="border:2px solid #f1f1f1">
+  <div class="name">
+  <h2> {{userProfile.fullName}} </h2>
+  </div>
+  <div class="points">
+  <h6> <i class="fa fa-envelope-square" aria-hidden="true"></i> {{userProfile.email}} </h6>
+  <h6> <i class="fa fa-phone-square" aria-hidden="true"></i> {{userProfile.numberPhone}} </h6>
+</div>
+</div>
+
+
+</div>

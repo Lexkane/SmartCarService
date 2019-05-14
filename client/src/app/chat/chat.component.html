@@ -1,0 +1,26 @@
+
+<br>
+<br>
+<br>
+<div class="container-fluid" >
+
+  <!--<form  >-->
+    <!--<div style="margin-bottom: 20px;">-->
+      <!--<input type="text" [(ngModel)]="mydealer.dealerEdr" name="fromId"  placeholder="Your id">-->
+      <!--<input type="submit" (click)="openSocket()"  value="open socket to recieve custom messages">-->
+    <!--</div>-->
+    <!--<input type="text"  [(ngModel)]="toId" name="toId" placeholder="User id to send the message to">-->
+  <!--</form>-->
+
+  <form>
+    <p>Message: </p>
+    <input type="text" [(ngModel)]="msg" name="message" placeholder="Message">
+    <input type="button"  value="Send " (click)="sendMessageUsingRest()">
+
+  </form>
+  <p>click on the button who is the receiver</p>
+  <ul>
+     <li  *ngFor="let message of messages" > <button (click)="select(message.fromId)"> From: {{message.fromId}} </button>    To: {{message.toId}}, Message: {{message.message}}</li>
+  </ul>
+
+</div>

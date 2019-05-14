@@ -1,0 +1,12 @@
+<div class='d-flex justify-content-center flex-wrap charts'>
+  <progress-chart class="align-self-center" sensorType='battery' [carId]=carId></progress-chart>
+  <progress-chart class="align-self-center" sensorType='Max battery capacity' [carId]=carId></progress-chart>
+
+  <line-chart sensorType='speed' [carId]=carId></line-chart>
+  <line-chart sensorType='mileage' [carId]=carId></line-chart>
+  <line-chart sensorType='tire pressure' [carId]=carId></line-chart>
+  <line-chart sensorType='oil pressure' [carId]=carId></line-chart>
+
+  <bar-chart sensorType='fuel' [carId]=carId></bar-chart>
+  <bar-chart sensorType='oil level' [carId]=carId></bar-chart>
+</div>
